@@ -1,5 +1,4 @@
 const express = require("express");
-import path from "path";
 const cors = require("cors");
 require("dotenv").config();
 
@@ -14,11 +13,5 @@ app.use(express.json());
 // Route
 app.use("/api/anime", animeRoutes);
 app.use("/api/useranime", userAnimeRoutes);
-
-app.use(express.static(path.join(__dirname, "dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
-});
 
 module.exports = app;
